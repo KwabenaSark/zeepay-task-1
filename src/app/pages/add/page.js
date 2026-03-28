@@ -95,13 +95,15 @@ export default function AddPage() {
             ))}
           </TextField>
           <TextField
-            label="Job Link"
-            name="jobLink"
-            value={formData.jobLink}
-            onChange={handleChange}
-            fullWidth
-            placeholder="https://..."
-          />
+  label="Job Link"
+  name="jobLink"
+  value={formData.jobLink}
+  onChange={handleChange}
+  fullWidth
+  placeholder="https://..."
+  error={formData.jobLink.length > 0 && !formData.jobLink.startsWith('https://')}
+  helperText={formData.jobLink.length > 0 && !formData.jobLink.startsWith('https://') ? 'Link must start with https://' : ''}
+/>
 
           <Button
             type="submit"

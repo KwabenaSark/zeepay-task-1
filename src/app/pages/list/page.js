@@ -65,9 +65,7 @@ const selectedItem = selectedId
 
 const closePopup = () => setSelectedId(null);
 
-useEffect(()=>{
-  fetch()
-})
+useEffect(() => { fetch(); }, []);
 
 
 
@@ -199,43 +197,33 @@ return (
 
 
 
-{/* Details page */}
-    <Dialog open={Boolean(selectedId)} onClose={closePopup} maxWidth="lg" sx={{
-    "& .MuiDialog-paper": {
-      height: "100vh",
-      margin: 0,
-    },
-  }} fullWidth>
-      <DialogTitle>Application details</DialogTitle>
-      <DialogContent dividers>
-        {selectedItem ? (
-          <Stack spacing={1}>
-            <Typography>
-              <strong>Company:</strong> {selectedItem.companyName}
-            </Typography>
-            <Typography>
-              <strong>Role:</strong> {selectedItem.jobTitle}
-            </Typography>
-            <Typography>
-              <strong>Status:</strong> {selectedItem.status}
-            </Typography>
-            <Typography>
-              <strong>Status:</strong> {selectedItem.dateApplied}
-            </Typography>
-            <Typography>
-              <strong>Status:</strong> {selectedItem.jobLink}
-            </Typography>
-          </Stack>
-        ) : (
-          <Typography color="text.secondary">No item selected.</Typography>
-        )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={closePopup} variant="contained">
-          Close
-        </Button>
-      </DialogActions>
-    </Dialog>
+
+   {/* Details Dialog */}
+<Dialog
+  open={Boolean(selectedId)}
+  onClose={closePopup}
+  maxWidth="lg"
+  fullWidth
+  sx={{ '& .MuiDialog-paper': { height: '100vh', margin: 0 } }}
+>
+  <DialogTitle>Application Details</DialogTitle>
+  <DialogContent dividers>
+    {selectedItem ? (
+      <Stack spacing={2}>
+        <Typography><strong>Company:</strong> {selectedItem.companyName}</Typography>
+        <Typography><strong>Role:</strong> {selectedItem.jobTitle}</Typography>
+        <Typography><strong>Status:</strong> {selectedItem.status}</Typography>
+        <Typography><strong>Date Applied:</strong> {selectedItem.dateApplied}</Typography>
+        <Typography><strong>Job Link:</strong> {selectedItem.jobLink}</Typography>
+      </Stack>
+    ) : (
+      <Typography color="text.secondary">No item selected.</Typography>
+    )}
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={closePopup} variant="contained">Close</Button>
+  </DialogActions>
+</Dialog>
   </Box>
 );
 }

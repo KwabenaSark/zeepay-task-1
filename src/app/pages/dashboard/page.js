@@ -18,10 +18,7 @@ setStats(res.data)
 
 }
 
-useEffect(()=>{
-
-  fetch()
-})
+useEffect(() => { fetch(); }, []);
 
 
   return (
