@@ -2,6 +2,8 @@
 
 A Next.js web application 
 
+Hosted on [https://boisterous-sunshine-346924.netlify.app]
+
 ---
 
 ## Tech Stack
@@ -54,6 +56,4 @@ npm run dev
 Open [localhost +port](http://localhost:3000)  in your browser.
 
 ---
-
-
 
